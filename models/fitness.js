@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 const fitnessSchema = new Schema(
 
   {
-    day: {
+    date: {
       type: Date,
       default: Date.now
     },
+    
     exercises: [
       {
         type: {
@@ -59,5 +60,4 @@ fitnessSchema.virtual("totalDuration").get(function() {
 });
 
 const Workout = mongoose.model("Workout", fitnessSchema);
-
 module.exports = Workout;
