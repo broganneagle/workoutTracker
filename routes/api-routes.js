@@ -1,6 +1,9 @@
 var db = require("../models");
+// const { builtinModules } = require("module");
 
-module.exports = function(app) {
+const express = require("express");
+const app = express();
+// module.exports = function(app) {
 
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({})
@@ -32,7 +35,7 @@ module.exports = function(app) {
             res.json(err);
         });
     }); 
-};
+// };
 
     app.put("/api/workouts/:id", ({body, params}, res) => {
 
@@ -62,5 +65,6 @@ module.exports = function(app) {
         }
             
     })
+module.exports=app;
 
     
