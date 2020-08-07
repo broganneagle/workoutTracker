@@ -11,6 +11,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
 const db = require("./models");
@@ -21,3 +22,6 @@ require("./routes/html-routes")(app);
 app.listen(PORT, () => {
   console.log(`${PORT}`);
 });
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
